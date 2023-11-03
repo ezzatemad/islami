@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mu_quran"
+        android:title="القران"
+        android:icon="@drawable/quran_bottom"
+        />
+    <item
+        android:id="@+id/mu_hadeth"
+        android:title="الاحاديث"
+        android:icon="@drawable/hadeth_bottom"
+        />
+
+    <item
+        android:id="@+id/mu_sebah"
+        android:title="السبحه"
+        android:icon="@drawable/sebha_bottom"
+        />
+
+    <item
+        android:id="@+id/mu_radio"
+        android:title="الراديو"
+        android:icon="@drawable/radio_bottom"
+        />
+
+</menu>

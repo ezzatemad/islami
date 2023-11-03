@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.QuranFragment"
+    >
+
+    <ImageView
+        android:layout_marginTop="70dp"
+        android:id="@+id/iv_radio_header"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/iv_radio_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_percent=".4"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/tv_radio"
+        />
+    <TextView
+        android:id="@+id/tv_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="إذاعة القرآن الكريم"
+        app:layout_constraintTop_toBottomOf="@id/iv_radio_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/islami_word"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        />
+
+        <ImageView
+            android:id="@+id/iv_metro_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/radio_left"
+            app:layout_constraintTop_toBottomOf="@+id/tv_radio"
+            app:layout_constraintStart_toStartOf="@id/tv_radio"
+            app:layout_constraintBottom_toBottomOf="@id/iv_metro_play"
+
+            android:layout_marginTop="30dp"
+            />
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:id="@+id/iv_metro_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/radio_play"
+            app:layout_constraintTop_toBottomOf="@+id/tv_radio"
+            app:layout_constraintEnd_toStartOf="@id/iv_metro_rigth"
+            app:layout_constraintStart_toEndOf="@id/iv_metro_left"
+            />
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:id="@+id/iv_metro_rigth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/radio_right"
+            app:layout_constraintTop_toBottomOf="@+id/tv_radio"
+            app:layout_constraintEnd_toEndOf="@id/tv_radio"
+            app:layout_constraintBottom_toBottomOf="@id/iv_metro_play"
+            />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

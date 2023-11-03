@@ -1,0 +1,87 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Islami" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">@color/dark_blue</item>
+
+    </style>
+
+
+    <style name="Theme.Islami" parent="Base.Theme.Islami" />
+    <style name="bottom_navigation_view">
+        <item name="android:background">@color/dark_blue</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="itemIconSize">40dp</item>
+        <item name="itemIconTint">@color/bottom_navigation_selector_color_dark</item>
+        <item name="itemTextColor">@color/bottom_navigation_selector_color_dark</item>
+    </style>
+    
+    <style name="splash">
+        <item name="background">@drawable/splash_dark</item>
+    </style>
+    <style name="sura_names">
+        <item name="android:textColor">@color/content_background</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="sura_name_number">
+        <item name="android:textColor">@color/content_background</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="default_bg">
+        <item name="android:background">@drawable/dark_bg</item>
+    </style>
+    <style name="islami_word">
+        <item name="android:textColor">@color/content_background</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="quran_hadeth_content">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/bottom_navi_selected_dark</item>
+    </style>
+
+    <style name="quran_hadeth_content_background">
+        <item name="android:background">@drawable/content_background_dark_shape</item>
+    </style>
+    <style name="quran_hadeth_title">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/bottom_navi_selected_dark</item>
+    </style>
+
+    <style name="sebha_number">
+        <item name="android:background">@drawable/num_tasbeeh_shape_dark</item>
+        <item name="android:textColor">@color/content_background</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="sebha_word">
+        <item name="android:background">@drawable/btn_tasbeeh_shape_dark</item>
+        <item name="android:textColor">@color/sebha_word_dark</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="sebha_image">
+        <item name="android:src">@drawable/iv_sebha_header_dark</item>
+    </style>
+
+    <style name="radio_left">
+        <item name="android:src">@drawable/iv_radio_left_dark</item>
+    </style>
+
+    <style name="radio_right">
+        <item name="android:src">@drawable/iv_radio_rigth_dark</item>
+    </style>
+    <style name="radio_play">
+        <item name="android:src">@drawable/iv_radio_play_dark</item>
+    </style>
+
+    <style name="icon_back">
+        <item name="android:src">@drawable/ic_back_dark</item>
+        <item name="android:padding">10dp</item>
+    </style>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="islami_word_Arabic">#242424</color>
+    <color name="gold">#B7935F</color>
+    <color name="dark_blue">#141A2E</color>
+    <color name="content_background">#F8F8F8</color>
+    <color name="bottom_navi_selected">#F8F8F8</color>
+    <color name="bottom_navi_selected_dark">#FACC1D</color>
+    <color name="backfround_content">#141A2E</color>
+    <color name="sebha_word_dark">#0F1424</color>
+</resources>
