@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.example.islami.R
+import com.example.islami.databinding.FragmentSebhBinding
 
 class SebhFragment : Fragment() {
-    lateinit var tv_num_tasbeeh:TextView
-    lateinit var btn_tasbeeh:Button
+    lateinit var viewBinding: FragmentSebhBinding
     var number = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,36 +25,36 @@ class SebhFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sebh, container, false)
+        viewBinding = FragmentSebhBinding.inflate(inflater,container,false)
+        return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tv_num_tasbeeh = view.findViewById(R.id.tv_num_tasbeeh)
-        btn_tasbeeh = view.findViewById(R.id.btn_tasbeeh)
 
-        tv_num_tasbeeh.text = "0"
-        btn_tasbeeh.text = "سبحان الله"
+        viewBinding.tvNumTasbeeh.text = "0"
+        viewBinding.btnTasbeeh.text = "سبحان الله"
 
-        btn_tasbeeh.setOnClickListener {
+        viewBinding.btnTasbeeh.setOnClickListener {
+            viewBinding.ivSebhaBody.rotation = viewBinding.ivSebhaBody.rotation+5
             number++
-            tv_num_tasbeeh.text = (number).toString()
-            if(number == 33 && btn_tasbeeh.text == "سبحان الله")
+            viewBinding.tvNumTasbeeh.text = (number).toString()
+            if(number == 33 && viewBinding.btnTasbeeh.text == "سبحان الله")
             {
-                btn_tasbeeh.text = "الحمد لله"
-                tv_num_tasbeeh.text = "0"
+                viewBinding.btnTasbeeh.text = "الحمد لله"
+                viewBinding.tvNumTasbeeh.text = "0"
                 number = 0
             }
-            else if(number == 33 && btn_tasbeeh.text == "الحمد لله")
+            else if(number == 33 && viewBinding.btnTasbeeh.text == "الحمد لله")
             {
-                btn_tasbeeh.text = "الله اكبر"
-                tv_num_tasbeeh.text = "0"
+                viewBinding.btnTasbeeh.text = "الله اكبر"
+                viewBinding.tvNumTasbeeh.text = "0"
                 number = 0
             }
-            else if(number == 33 && btn_tasbeeh.text == "الله اكبر")
+            else if(number == 33 && viewBinding.btnTasbeeh.text == "الله اكبر")
             {
-                btn_tasbeeh.text = "سبحان الله"
-                tv_num_tasbeeh.text = "0"
+                viewBinding.btnTasbeeh.text = "سبحان الله"
+                viewBinding.tvNumTasbeeh.text = "0"
                 number = 0
             }
         }

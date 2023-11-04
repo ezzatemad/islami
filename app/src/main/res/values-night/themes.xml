@@ -65,8 +65,11 @@
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <style name="sebha_image">
-        <item name="android:src">@drawable/iv_sebha_header_dark</item>
+    <style name="sebha_image_head">
+        <item name="android:src">@drawable/head_of_seb7a_dark</item>
+    </style>
+    <style name="sebha_image_body">
+        <item name="android:src">@drawable/body_of_seb7a_dark</item>
     </style>
 
     <style name="radio_left">
