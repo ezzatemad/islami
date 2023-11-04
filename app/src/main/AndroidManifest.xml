@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Islami"
         tools:targetApi="31">
         <activity
-            android:name=".HadethContentActivity"
+            android:name=".hadeth.HadethContentActivity"
             android:exported="false" />
         <activity
-            android:name=".QuranContentActivity"
+            android:name=".Quran.QuranContentActivity"
             android:exported="false" />
         <activity
             android:name=".home_activity"
