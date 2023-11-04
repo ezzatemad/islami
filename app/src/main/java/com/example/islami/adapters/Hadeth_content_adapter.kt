@@ -1,37 +1,39 @@
 package com.example.islami.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.islami.R
-import com.example.islami.adapters.sura_content_adapter.*
+import com.example.islami.databinding.HadethContentLayoutBinding
 
-class Hadeth_content_adapter(var list :List<String> ?= null): RecyclerView.Adapter<Hadeth_content_adapter.hadethviewHolder>() {
+class HadethContentAdapter(var list: List<String>? = null) :
+    RecyclerView.Adapter<HadethContentAdapter.HadethViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): hadethviewHolder{
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.hadeth_content_layout,parent,false)
-        return hadethviewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HadethViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = HadethContentLayoutBinding.inflate(inflater, parent, false)
+        return HadethViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return list?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: hadethviewHolder, position: Int) {
-        holder.hadeth_content.text = list?.get(position)
+    override fun onBindViewHolder(holder: HadethViewHolder, position: Int) {
+        val data = list?.get(position)
+        holder.bind(data)
     }
-    fun updateData(list: List<String>?)
-    {
-        this.list= list
+
+    fun updateData(list: List<String>?) {
+        this.list = list
         notifyDataSetChanged()
     }
 
-    class hadethviewHolder(view :View):ViewHolder(view){
+    inner class HadethViewHolder(private val binding: HadethContentLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        val hadeth_content : TextView = view.findViewById(R.id.tv_content_hadethName)
+        fun bind(data: String?) {
+            binding.tvHadethContent.text = data
+        }
     }
 }

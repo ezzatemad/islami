@@ -13,10 +13,10 @@ import com.example.islami.R
 import com.example.islami.adapters.hadeth_adapter
 import com.example.islami.data.constant_value
 import com.example.islami.data.hadeth_data
+import com.example.islami.databinding.FragmentHadethBinding
 
 class HadethFragment : Fragment() {
-
-    lateinit var recyclerView:RecyclerView
+    lateinit var viewBinding: FragmentHadethBinding
     lateinit var hadeth_adapter :hadeth_adapter
     lateinit var list :List<hadeth_data>
     lateinit var titleHadeth :String
@@ -33,12 +33,12 @@ class HadethFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hadeth, container, false)
+        viewBinding = FragmentHadethBinding.inflate(inflater, container, false)
+        return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       recyclerView = view.findViewById(R.id.rv_hadeth)
         readFileHadeth()
         hadeth_adapter = hadeth_adapter(hadethList)
 
@@ -50,7 +50,7 @@ class HadethFragment : Fragment() {
                 startActivity(intent)
             }
         }
-        recyclerView.adapter = hadeth_adapter
+        viewBinding.rvHadeth.adapter = hadeth_adapter
     }
     val hadethList = mutableListOf<hadeth_data>()
     fun readFileHadeth()
@@ -66,6 +66,4 @@ class HadethFragment : Fragment() {
         }
 
     }
-
-
 }

@@ -1,18 +1,14 @@
 package com.example.islami
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.islami.databinding.ActivityHomeBinding
 import com.example.islami.fragment.HadethFragment
 import com.example.islami.fragment.QuranFragment
 import com.example.islami.fragment.RadioFragment
 import com.example.islami.fragment.SebhFragment
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class home_activity : AppCompatActivity() {
@@ -21,10 +17,9 @@ class home_activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-
-        bottomNavigation = findViewById(R.id.bottom_navigation)
-
+        val binding: ActivityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.getRoot())
+        bottomNavigation = binding.bottomNavigation
         pushFragment(QuranFragment())
         initView()
 

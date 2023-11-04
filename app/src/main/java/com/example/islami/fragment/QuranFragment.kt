@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.RecyclerView
 import com.example.islami.QuranContentActivity
@@ -18,14 +16,12 @@ import com.example.islami.data.Suraslist
 import com.example.islami.data.constant_value
 import com.example.islami.adapters.quran_adapter
 import com.example.islami.data.quran_data
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.islami.databinding.FragmentQuranBinding
+
 
 class QuranFragment : Fragment() {
-
-    lateinit var recyclerView: RecyclerView
+    lateinit var viewBinding: FragmentQuranBinding
     lateinit var quran_adapter: quran_adapter
-    lateinit var btn_switch : Button
-    lateinit var iv_switch : ImageView
     private var isNightMode = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
     private lateinit var sharedPreferences: SharedPreferences
        override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,21 +36,21 @@ class QuranFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quran, container, false)
+        viewBinding =  FragmentQuranBinding.inflate(inflater, container, false)
+        return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.rv_quran)
-        iv_switch = view.findViewById(R.id.iv_switch)
+
         if (isNightMode) {
-            iv_switch.setImageResource(R.drawable.light_mode)
-            iv_switch.setColorFilter(Color.WHITE)
+            viewBinding.ivSwitch.setImageResource(R.drawable.light_mode)
+            viewBinding.ivSwitch.setColorFilter(Color.WHITE)
         } else {
-            iv_switch.setImageResource(R.drawable.nightlight_round)
-            iv_switch.setColorFilter(null)
+            viewBinding.ivSwitch.setImageResource(R.drawable.nightlight_round)
+            viewBinding.ivSwitch.setColorFilter(null)
         }
-        iv_switch.setOnClickListener {
+            viewBinding.ivSwitch.setOnClickListener {
 
             if (!isNightMode) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -75,7 +71,7 @@ class QuranFragment : Fragment() {
                 startActivity(intent)
             }
         }
-        recyclerView.adapter = quran_adapter
+        viewBinding.rvQuran.adapter = quran_adapter
 
     }
 
