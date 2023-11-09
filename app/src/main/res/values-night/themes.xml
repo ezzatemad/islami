@@ -18,7 +18,7 @@
     </style>
     
     <style name="splash">
-        <item name="background">@drawable/splash_dark</item>
+        <item name="android:src">@drawable/splash_light</item>
     </style>
     <style name="sura_names">
         <item name="android:textColor">@color/content_background</item>
@@ -36,6 +36,7 @@
     <style name="islami_word">
         <item name="android:textColor">@color/content_background</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="quran_hadeth_content">
