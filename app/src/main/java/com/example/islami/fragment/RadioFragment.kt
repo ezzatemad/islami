@@ -57,6 +57,38 @@ class RadioFragment : Fragment() {
         return viewBinding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        startService()
+        bindService()
+    }
+
+    private fun bindService() {
+        val intent = Intent(activity,PlayServices::class.java)
+        activity?.bindService(intent,connection,Context.BIND_AUTO_CREATE)
+    }
+
+    val connection = object :ServiceConnection{
+        override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
+            val binder = p1 as PlayServices.MyBinder
+            services = binder.getServices()
+            bound = true
+        }
+
+        override fun onServiceDisconnected(p0: ComponentName?) {
+            bound = false
+        }
+
+    }
+    private fun startService() {
+        val intent = Intent(activity,PlayServices::class.java)
+        activity?.startService(intent)
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
