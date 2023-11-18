@@ -29,6 +29,7 @@ class RadioFragment : Fragment() {
     val adapter = radio_Adapter()
 
 
+
     // Service connection to interact with PlayServices
     private val serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
@@ -112,11 +113,13 @@ class RadioFragment : Fragment() {
 
     private fun startRadioService(item: RadiosItem) {
         if (bound && item.name != null && item.url != null){
+            services.resetMediaPlayer()
             services.startMediaPlayer(urlToPlay = item.url, name = item.name)
         }
     }
     private fun startPlayService() {
         if (bound){
+            services.resetMediaPlayer()
             services.pauseMediaPlayer()
         }
 

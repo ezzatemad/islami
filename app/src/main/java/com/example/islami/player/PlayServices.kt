@@ -13,15 +13,15 @@ import android.os.PowerManager
 import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import com.example.islami.R
 import com.example.islami.myApplication
-import okhttp3.internal.notify
 
 class PlayServices: Service() {
     private val binder = MyBinder()
     var mediaPlayer: MediaPlayer?= null
     var name:String = ""
+
+
     override fun onBind(p0: Intent?): IBinder? {
         return binder
     }
@@ -57,9 +57,10 @@ class PlayServices: Service() {
     override fun onDestroy() {
         mediaPlayer?.release()
         super.onDestroy()
+//        stopMediaPlayer()
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-//        super.onStartCommand(intent, flags, startId)
+        super.onStartCommand(intent, flags, startId)
 
         val name = intent?.getStringExtra("name")
         val urlToPlay = intent?.getStringExtra("urlToPlay")
@@ -73,9 +74,16 @@ class PlayServices: Service() {
             pauseMediaPlayer()
         }else if (action.equals("stop")){
             stopMediaPlayer()
+        }else if (action.equals("play")) {
+            resumeMediaPlayer()  // Added this line to handle play action
         }
 
         return START_NOT_STICKY
+    }
+    fun resumeMediaPlayer() {
+        mediaPlayer?.start()
+        // Update notification
+        updateNotification()
     }
 
     fun startMediaPlayer(urlToPlay: String, name: String) {
@@ -113,7 +121,7 @@ class PlayServices: Service() {
             }
         }
         // Update notification
-        updateNotification()
+//        updateNotification()
     }
     fun pauseMediaPlayer2() {
         mediaPlayer?.let {
@@ -122,17 +130,17 @@ class PlayServices: Service() {
             }
         }
     }
-     fun stopMediaPlayer() {
-
-         mediaPlayer?.let {
-             if (it != null && it.isPlaying) {
-                 it.stop()
-                 it.reset()
-             }
-//             stopSelf()
-//             stopForeground(true)
-         }
-     }
+    fun stopMediaPlayer() {
+        mediaPlayer?.let {
+            if (it.isPlaying) {
+                it.stop()
+            }
+            it.reset()
+        }
+        // Update notification instead of creating a new one
+        updateNotification()
+        stopSelf()
+    }
 
     // This function can be called when your music starts playing
     fun createNotification(name: String) {
@@ -152,6 +160,8 @@ class PlayServices: Service() {
             .setSound(null)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setPriority(NotificationCompat.PRIORITY_MAX) // Adjust as needed
+            .setOngoing(true)
+            .setDefaults(0)
             .build()
 
         startForeground(START_FORGROUND_ID,notification)
@@ -181,20 +191,22 @@ class PlayServices: Service() {
             .setOngoing(true)
             .setDefaults(0)
             .build()
+
+        startForeground(START_FORGROUND_ID, notification)
         val notificationManager:NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE)
                 as NotificationManager
         notificationManager.notify(UPDATE_NOTIFY_ID,notification) // Use a unique notification ID
     }
     val UPDATE_NOTIFY_ID = 3000
-    val requestCode_play = 1000
+    val requestCode_play = 1010
     val requestCode_stop = 2000
     val STOP_ACTION = "stop"
     val PLAY_ACTION = "play"
     private fun getPlayButtonPendingIntent(): PendingIntent? {
-        val intent = Intent(this,PlayServices::class.java)
-        intent.putExtra("action",PLAY_ACTION)
+        val playIntent = Intent(this,PlayServices::class.java)
+        playIntent.putExtra("action",PLAY_ACTION)
         val pendingIntent = PendingIntent
-            .getService(this,requestCode_play,intent,PendingIntent.FLAG_IMMUTABLE)
+            .getService(this,requestCode_play,playIntent, PendingIntent.FLAG_IMMUTABLE)
         return pendingIntent
     }
     private fun getStopButtonPendingIntent(): PendingIntent? {
@@ -204,5 +216,15 @@ class PlayServices: Service() {
             .getService(this,requestCode_stop,intent,PendingIntent.FLAG_IMMUTABLE)
         return pendingIntent
     }
+
+    fun resetMediaPlayer() {
+        mediaPlayer?.let {
+            if (it.isPlaying) {
+                it.stop()
+            }
+            it.reset()
+        }
+    }
+
 
 }
