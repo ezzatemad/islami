@@ -9,8 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.recyclerview.widget.RecyclerView
-import com.example.islami.QuranContentActivity
+import com.example.islami.Quran.QuranContentActivity
 import com.example.islami.R
 import com.example.islami.data.Suraslist
 import com.example.islami.data.constant_value
@@ -65,7 +64,7 @@ class QuranFragment : Fragment() {
         })
         quran_adapter.onItemClickListener = object: quran_adapter.OnItemClickListener {
             override fun onItemClick(itemView: quran_data) {
-                val intent = Intent(requireActivity(),QuranContentActivity::class.java)
+                val intent = Intent(requireActivity(), QuranContentActivity::class.java)
                 intent.putExtra(constant_value.CONTENT_SURA_NAME,itemView.tital)
                 intent.putExtra(constant_value.CONTENT_SURA_POSITION,itemView.order_num)
                 startActivity(intent)

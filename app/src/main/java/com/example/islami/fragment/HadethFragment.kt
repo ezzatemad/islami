@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.example.islami.HadethContentActivity
-import com.example.islami.R
+import com.example.islami.hadeth.HadethContentActivity
 import com.example.islami.adapters.hadeth_adapter
 import com.example.islami.data.constant_value
 import com.example.islami.data.hadeth_data

@@ -17,7 +17,7 @@
     </style>
 
     <style name="splash">
-        <item name="background">@drawable/splash</item>
+        <item name="android:src">@drawable/splash_light</item>
     </style>
     <style name="sura_names">
         <item name="android:textColor">@color/black</item>
@@ -36,7 +36,8 @@
     </style>
     <style name="islami_word">
         <item name="android:textColor">@color/islami_word_Arabic</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
     </style>
     
     <style name="quran_hadeth_content">
@@ -64,10 +65,10 @@
         <item name="android:textStyle">bold</item>
     </style>
     <style name="sebha_image_head">
-        <item name="android:src">@drawable/head_of_seb7a</item>
+        <item name="android:src">@drawable/iv_head_of_seb7a</item>
     </style>
     <style name="sebha_image_body">
-        <item name="android:src">@drawable/body_of_seb7a</item>
+        <item name="android:src">@drawable/iv_body_of_seb7a</item>
     </style>
 
 
@@ -81,7 +82,9 @@
     <style name="radio_play">
         <item name="android:src">@drawable/iv_radio_play</item>
     </style>
-
+    <style name="radio_stop">
+        <item name="android:src">@drawable/stop_light</item>
+    </style>
 
     <style name="icon_back">
         <item name="android:src">@drawable/icon_back</item>

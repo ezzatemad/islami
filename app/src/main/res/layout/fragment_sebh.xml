@@ -24,7 +24,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_sebha_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="-12dp"
+        android:layout_marginTop="-33dp"
         />
 
     <TextView
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_sebha_body"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_num_tasbeeh"
         />
 
     <TextView
@@ -49,9 +49,8 @@
         app:layout_constraintTop_toBottomOf="@id/tv_tasbeeh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-
-        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_tasbeeh"
+        android:padding="13dp"
         android:gravity="center"
         />
     <androidx.appcompat.widget.AppCompatButton
@@ -61,11 +60,11 @@
         app:layout_constraintTop_toBottomOf="@id/tv_num_tasbeeh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
         tools:text="سبحان الله"
         android:gravity="center"
         style="@style/sebha_word"
         app:layout_constraintWidth_percent=".5"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
