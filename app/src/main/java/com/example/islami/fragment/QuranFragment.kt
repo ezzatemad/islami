@@ -1,5 +1,6 @@
 package com.example.islami.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -21,9 +22,11 @@ import com.example.islami.databinding.FragmentQuranBinding
 class QuranFragment : Fragment() {
     lateinit var viewBinding: FragmentQuranBinding
     lateinit var quran_adapter: quran_adapter
-    private var isNightMode = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
     private lateinit var sharedPreferences: SharedPreferences
+
+
        override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         arguments?.let {
 
@@ -42,23 +45,25 @@ class QuranFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (isNightMode) {
-            viewBinding.ivSwitch.setImageResource(R.drawable.light_mode)
-            viewBinding.ivSwitch.setColorFilter(Color.WHITE)
-        } else {
-            viewBinding.ivSwitch.setImageResource(R.drawable.nightlight_round)
-            viewBinding.ivSwitch.setColorFilter(null)
-        }
-            viewBinding.ivSwitch.setOnClickListener {
+        // Retrieve the night mode status from SharedPreferences
+        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean("nightMode", false)
 
-            if (!isNightMode) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        enableDarkMode(isNightMode)
 
+        viewBinding.ivSwitch.setOnClickListener {
+            // Toggle dark mode
+            val newNightMode = !isNightMode
+            enableDarkMode(newNightMode)
+
+            // Save the night mode status to SharedPreferences
+            with(sharedPreferences.edit()) {
+                putBoolean("nightMode", newNightMode)
+                apply()
             }
         }
+
         quran_adapter = quran_adapter(Suraslist.mapIndexed{
             index,it -> quran_data(tital =it , order_num = (index+1))
         })
@@ -73,5 +78,22 @@ class QuranFragment : Fragment() {
         viewBinding.rvQuran.adapter = quran_adapter
 
     }
-
+     fun updateSwitchUI(isNightMode: Boolean) {
+        if (isNightMode) {
+            viewBinding.ivSwitch.setImageResource(R.drawable.light_mode)
+            viewBinding.ivSwitch.setColorFilter(Color.WHITE)
+        } else {
+            viewBinding.ivSwitch.setImageResource(R.drawable.nightlight_round)
+            viewBinding.ivSwitch.setColorFilter(null)
+        }
+    }
+    private fun enableDarkMode(isNightMode: Boolean) {
+        // Set the default night mode
+        AppCompatDelegate.setDefaultNightMode(
+            if (isNightMode) AppCompatDelegate.MODE_NIGHT_YES
+            else AppCompatDelegate.MODE_NIGHT_NO
+        )
+        // Update the UI based on the current night mode
+        updateSwitchUI(isNightMode)
+    }
 }
