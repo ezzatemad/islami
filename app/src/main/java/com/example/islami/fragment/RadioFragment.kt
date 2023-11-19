@@ -17,6 +17,7 @@ import com.example.islami.api.model.RadiosItem
 import com.example.islami.api.services.APIManger
 import com.example.islami.databinding.FragmentRadioBinding
 import com.example.islami.player.PlayServices
+import com.example.islami.radioListActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -108,6 +109,12 @@ class RadioFragment : Fragment() {
             }
         }
         getRadioFromAPI()
+
+        viewBinding.ivRadioList.setOnClickListener {
+            val intent = Intent(requireContext(),radioListActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
 

@@ -7,18 +7,25 @@
 
     </style>
 
+    <style name="SplashTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Define your light mode styles for the splash screen here -->
+        <item name="android:src">@drawable/splash_light</item>
+    </style>
+
     <style name="Theme.Islami" parent="Base.Theme.Islami" />
+
     <style name="bottom_navigation_view">
-    <item name="android:background">@color/gold</item>
-    <item name="itemActiveIndicatorStyle">@null</item>
-    <item name="itemIconSize">40dp</item>
-    <item name="itemIconTint">@color/bottom_navigation_selector_color</item>
-    <item name="itemTextColor">@color/bottom_navigation_selector_color</item>
+        <item name="android:background">@color/gold</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="itemIconSize">40dp</item>
+        <item name="itemIconTint">@color/bottom_navigation_selector_color</item>
+        <item name="itemTextColor">@color/bottom_navigation_selector_color</item>
     </style>
 
     <style name="splash">
         <item name="android:src">@drawable/splash_light</item>
     </style>
+
     <style name="sura_names">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">25sp</item>
@@ -34,23 +41,34 @@
     <style name="default_bg">
         <item name="android:background">@drawable/default_bg</item>
     </style>
+
     <style name="islami_word">
         <item name="android:textColor">@color/islami_word_Arabic</item>
         <item name="android:textSize">25sp</item>
         <item name="android:gravity">center</item>
     </style>
-    
+
+    <style name="islami_word_vertical">
+        <item name="android:textColor">@color/islami_word_Arabic</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">start</item>
+    </style>
+
     <style name="quran_hadeth_content">
         <item name="android:textSize">22sp</item>
         <item name="android:textColor">@color/islami_word_Arabic</item>
     </style>
+
     <style name="quran_hadeth_content_background">
         <item name="android:background">@drawable/content_background_shape</item>
     </style>
+
     <style name="quran_hadeth_title">
         <item name="android:textSize">25sp</item>
         <item name="android:textColor">@color/islami_word_Arabic</item>
     </style>
+
     <style name="sebha_number">
         <item name="android:background">@drawable/num_tasbeeh_shape</item>
         <item name="android:textColor">@color/islami_word_Arabic</item>
@@ -64,9 +82,11 @@
         <item name="android:textSize">25sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="sebha_image_head">
         <item name="android:src">@drawable/iv_head_of_seb7a</item>
     </style>
+
     <style name="sebha_image_body">
         <item name="android:src">@drawable/iv_body_of_seb7a</item>
     </style>
@@ -79,9 +99,11 @@
     <style name="radio_right">
         <item name="android:src">@drawable/iv_radio_rigth</item>
     </style>
+
     <style name="radio_play">
         <item name="android:src">@drawable/iv_radio_play</item>
     </style>
+
     <style name="radio_stop">
         <item name="android:src">@drawable/stop_light</item>
     </style>
@@ -89,6 +111,12 @@
     <style name="icon_back">
         <item name="android:src">@drawable/icon_back</item>
         <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="ic_radio_vertical">
+        <item name="android:background">@drawable/ic_radio_list</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
     </style>
 
 </resources>

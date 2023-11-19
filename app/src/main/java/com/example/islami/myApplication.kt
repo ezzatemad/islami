@@ -18,7 +18,7 @@ class myApplication: Application() {
         super.onCreate()
 
         // Retrieve the night mode status from SharedPreferences
-        val sharedPreferences = getSharedPreferences("your_preferences_name", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("nightMode", Context.MODE_PRIVATE)
         val isNightMode = sharedPreferences.getBoolean("nightMode", false)
 
         // Set the default night mode for the entire application

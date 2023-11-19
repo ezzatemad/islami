@@ -18,7 +18,7 @@ class home_activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.getRoot())
+        setContentView(binding.root)
         bottomNavigation = binding.bottomNavigation
         pushFragment(QuranFragment())
         initView()

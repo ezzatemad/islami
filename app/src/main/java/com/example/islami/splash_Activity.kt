@@ -12,6 +12,12 @@ class splash_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Retrieve the night mode status from SharedPreferences
+        sharedPreferences = getSharedPreferences("nightMode", Context.MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean("nightMode", false)
+
+
+
         setContentView(R.layout.activity_splash)
         Handler().postDelayed({
             // Create an Intent to start the SecondActivity
