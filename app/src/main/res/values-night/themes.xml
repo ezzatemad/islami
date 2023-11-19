@@ -8,6 +8,10 @@
     </style>
 
 
+    <style name="SplashTheme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <!-- Define your dark mode styles for the splash screen here -->
+        <item name="android:src">@drawable/splash_dark</item>
+    </style>
     <style name="Theme.Islami" parent="Base.Theme.Islami" />
     <style name="bottom_navigation_view">
         <item name="android:background">@color/dark_blue</item>
@@ -37,6 +41,13 @@
         <item name="android:textColor">@color/content_background</item>
         <item name="android:textSize">25sp</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="islami_word_vertical">
+        <item name="android:textColor">@color/content_background</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">start</item>
     </style>
 
     <style name="quran_hadeth_content">
@@ -91,4 +102,11 @@
         <item name="android:src">@drawable/ic_back_dark</item>
         <item name="android:padding">10dp</item>
     </style>
+
+    <style name="ic_radio_vertical">
+        <item name="android:background">@drawable/iv_radio_list_dark</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+    </style>
+
 </resources>

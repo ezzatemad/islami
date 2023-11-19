@@ -5,5 +5,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="radio_channel_name">radio player</string>
     <string name="radio_channel_des">this is channel to display radio\n</string>
+    <string name="title_activity_radio_list">radioListActivity</string>
 
 </resources>
