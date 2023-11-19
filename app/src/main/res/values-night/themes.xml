@@ -16,9 +16,9 @@
         <item name="itemIconTint">@color/bottom_navigation_selector_color_dark</item>
         <item name="itemTextColor">@color/bottom_navigation_selector_color_dark</item>
     </style>
-    
+
     <style name="splash">
-        <item name="android:src">@drawable/splash_light</item>
+        <item name="android:src">@drawable/splash_dark</item>
     </style>
     <style name="sura_names">
         <item name="android:textColor">@color/content_background</item>

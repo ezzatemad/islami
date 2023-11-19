@@ -57,7 +57,7 @@ class PlayServices: Service() {
     override fun onDestroy() {
         mediaPlayer?.release()
         super.onDestroy()
-//        stopMediaPlayer()
+        stopMediaPlayer()
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
